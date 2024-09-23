@@ -1,0 +1,118 @@
+28-08-2024 17:45:35 - INFO: Запущен GrabberBot
+28-08-2024 17:45:35 - INFO: Запущен NodeJS
+28-08-2024 17:45:35 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://194.58.41.58:5000
+28-08-2024 17:45:35 - INFO: [33mPress CTRL+C to quit[0m
+28-08-2024 17:47:25 - INFO: Запущен GrabberBot
+28-08-2024 17:47:25 - INFO: Запущен NodeJS
+28-08-2024 17:47:25 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://194.58.41.58:5000
+28-08-2024 17:47:25 - INFO: [33mPress CTRL+C to quit[0m
+28-08-2024 17:47:32 - INFO: 95.25.196.218 - - [28/Aug/2024 17:47:32] "[33mGET / HTTP/1.1[0m" 404 -
+28-08-2024 17:47:33 - INFO: 95.25.196.218 - - [28/Aug/2024 17:47:33] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+28-08-2024 17:50:37 - INFO: Запущен GrabberBot
+28-08-2024 17:50:37 - INFO: Запущен NodeJS
+28-08-2024 17:50:37 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://194.58.41.58:5000
+28-08-2024 17:50:37 - INFO: [33mPress CTRL+C to quit[0m
+28-08-2024 17:51:45 - INFO: Запущен GrabberBot
+28-08-2024 17:51:45 - INFO: Запущен NodeJS
+28-08-2024 17:51:45 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://194.58.41.58:5000
+28-08-2024 17:51:45 - INFO: [33mPress CTRL+C to quit[0m
+28-08-2024 17:51:59 - INFO: Запущен бот TestAlex в screen сессии TestAlex
+28-08-2024 17:51:59 - INFO: 127.0.0.1 - - [28/Aug/2024 17:51:59] "[35m[1mPOST /start_bot HTTP/1.1[0m" 500 -
+28-08-2024 17:52:24 - INFO: Код 1814-0 отправлен в screen сессию TestAlex
+28-08-2024 17:52:24 - INFO: 127.0.0.1 - - [28/Aug/2024 17:52:24] "POST /send_code HTTP/1.1" 200 -
+28-08-2024 17:52:26 - INFO: Запущенные screen сессии:
+There are screens on:
+	22056.TestAlex	(08/28/24 17:51:59)	(Detached)
+	21997.GrabberBot	(08/28/24 17:51:45)	(Detached)
+	21993.GrabberBot	(08/28/24 17:51:45)	(Detached)
+3 Sockets in /run/screen/S-root.
+
+28-08-2024 17:52:26 - INFO: 127.0.0.1 - - [28/Aug/2024 17:52:26] "GET /list_bots HTTP/1.1" 200 -
+28-08-2024 17:52:45 - INFO: Бот TestAlex остановлен и screen сессия TestAlex завершена
+28-08-2024 17:52:45 - INFO: 127.0.0.1 - - [28/Aug/2024 17:52:45] "POST /stop_bot/TestAlex HTTP/1.1" 200 -
+28-08-2024 17:52:47 - INFO: Сессия TestAlex удалена
+28-08-2024 17:52:47 - INFO: 127.0.0.1 - - [28/Aug/2024 17:52:47] "POST /delete HTTP/1.1" 200 -
+28-08-2024 17:52:49 - INFO: Запущенные screen сессии:
+There are screens on:
+	21997.GrabberBot	(08/28/24 17:51:45)	(Detached)
+	21993.GrabberBot	(08/28/24 17:51:45)	(Detached)
+2 Sockets in /run/screen/S-root.
+
+28-08-2024 17:52:49 - INFO: 127.0.0.1 - - [28/Aug/2024 17:52:49] "GET /list_bots HTTP/1.1" 200 -
+28-08-2024 17:52:51 - INFO: Запущенные screen сессии:
+There are screens on:
+	21997.GrabberBot	(08/28/24 17:51:45)	(Detached)
+	21993.GrabberBot	(08/28/24 17:51:45)	(Detached)
+2 Sockets in /run/screen/S-root.
+
+28-08-2024 17:52:51 - INFO: 127.0.0.1 - - [28/Aug/2024 17:52:51] "GET /list_bots HTTP/1.1" 200 -
+28-08-2024 17:57:01 - INFO: Запущен GrabberBot
+28-08-2024 17:57:01 - INFO: Запущен NodeJS
+28-08-2024 17:57:08 - INFO: Запущен GrabberBot
+28-08-2024 17:57:08 - INFO: Запущен NodeJS
+28-08-2024 17:57:08 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://194.58.41.58:5000
+28-08-2024 17:57:08 - INFO: [33mPress CTRL+C to quit[0m
+28-08-2024 17:57:14 - INFO: 95.25.196.218 - - [28/Aug/2024 17:57:14] "[33mGET / HTTP/1.1[0m" 404 -
+28-08-2024 18:02:30 - INFO: Запущен GrabberBot
+28-08-2024 18:02:30 - INFO: Запущен NodeJS
+28-08-2024 18:02:48 - INFO: 95.25.196.218 - - [28/Aug/2024 18:02:48] "[33mGET / HTTP/1.1[0m" 404 -
+28-08-2024 18:37:06 - INFO: Запущен GrabberBot
+28-08-2024 18:51:27 - INFO: Запущен GrabberBot
+28-08-2024 18:51:52 - INFO: Запущен GrabberBot
+28-08-2024 18:56:29 - INFO: Запущен GrabberBot
+28-08-2024 18:56:29 - INFO: Запущен NodeJS
+28-08-2024 18:56:29 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://194.58.41.58:5000
+28-08-2024 18:56:29 - INFO: [33mPress CTRL+C to quit[0m
+28-08-2024 18:57:46 - INFO: Запущен GrabberBot
+28-08-2024 18:57:46 - INFO: Запущен NodeJS
+28-08-2024 18:57:46 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://194.58.41.58:5000
+28-08-2024 18:57:46 - INFO: [33mPress CTRL+C to quit[0m
+28-08-2024 19:00:03 - INFO: Запущенные screen сессии:
+There are screens on:
+	26415.NodeConsole	(08/28/24 18:57:45)	(Detached)
+	26411.GrabberBot	(08/28/24 18:57:45)	(Detached)
+	26240.Flask	(08/28/24 18:57:37)	(Attached)
+3 Sockets in /run/screen/S-root.
+
+28-08-2024 19:00:03 - INFO: 127.0.0.1 - - [28/Aug/2024 19:00:03] "GET /list_bots HTTP/1.1" 200 -
+28-08-2024 19:01:10 - INFO: Запущен бот TestAlex в screen сессии TestAlex
+28-08-2024 19:01:10 - INFO: 127.0.0.1 - - [28/Aug/2024 19:01:10] "[35m[1mPOST /start_bot HTTP/1.1[0m" 500 -
+28-08-2024 19:01:20 - INFO: Код 9430-2 отправлен в screen сессию TestAlex
+28-08-2024 19:01:20 - INFO: 127.0.0.1 - - [28/Aug/2024 19:01:20] "POST /send_code HTTP/1.1" 200 -
+28-08-2024 19:01:22 - INFO: Запущенные screen сессии:
+There are screens on:
+	26545.TestAlex	(08/28/24 19:01:10)	(Detached)
+	26415.NodeConsole	(08/28/24 18:57:45)	(Detached)
+	26411.GrabberBot	(08/28/24 18:57:45)	(Detached)
+	26240.Flask	(08/28/24 18:57:37)	(Attached)
+4 Sockets in /run/screen/S-root.
+
+28-08-2024 19:01:22 - INFO: 127.0.0.1 - - [28/Aug/2024 19:01:22] "GET /list_bots HTTP/1.1" 200 -
+28-08-2024 22:18:36 - INFO: 83.222.191.62 - - [28/Aug/2024 22:18:36] "[33mGET /containers/json HTTP/1.1[0m" 404 -
+28-08-2024 23:22:43 - ERROR: 167.94.145.108 - - [28/Aug/2024 23:22:43] code 400, message Bad request version ('À\x14À')
+28-08-2024 23:22:43 - INFO: 167.94.145.108 - - [28/Aug/2024 23:22:43] "[35m[1m\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03©@f\x84\x8fY¶ A\x19oLO}5à\x1aéü@\x1fËð\x81R5\x1d¿V?¿¦ ¨ÞSQïsJ\x1eÍ-ÓU\x97EçZv\x97öê.Xá\x87\x0f\x8eÈÚá'Ê \x00&Ì¨Ì©À/À0À+À,À\x13À\x09À\x14À[0m" HTTPStatus.BAD_REQUEST -
+28-08-2024 23:22:46 - INFO: 167.94.145.108 - - [28/Aug/2024 23:22:46] "[33mGET / HTTP/1.1[0m" 404 -
+28-08-2024 23:22:50 - INFO: 167.94.145.108 - - [28/Aug/2024 23:22:50] "[33mGET / HTTP/1.1[0m" 404 -
+28-08-2024 23:22:50 - ERROR: 167.94.145.108 - - [28/Aug/2024 23:22:50] code 505, message Invalid HTTP version (2.0)
+28-08-2024 23:22:50 - INFO: 167.94.145.108 - - [28/Aug/2024 23:22:50] "[35m[1mPRI * HTTP/2.0[0m" HTTPStatus.HTTP_VERSION_NOT_SUPPORTED -
