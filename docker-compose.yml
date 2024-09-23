@@ -14,5 +14,7 @@ services:
       MYSQL_DATABASE: mydatabase
       MYSQL_USER: user
       MYSQL_PASSWORD: password
+    ports:
+      - '3306:3306'
 volumes:
   mysqldata:
