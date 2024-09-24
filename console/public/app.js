@@ -48,6 +48,8 @@ ws.onmessage = function(event) {
             if (consoleEl.scrollTop > consoleEl.scrollHeight / 1.5) {
                 consoleEl.scrollTop += consoleEl.scrollHeight;
             }
+            
+            UpdateScroll()
         }
     }
 };
@@ -71,3 +73,20 @@ function SetActions() {
         }, 200));
     });
 };
+
+function UpdateScroll() {
+    const c = document.getElementById('console');
+    const s = document.getElementsByClassName("downscroll")
+
+    c.addEventListener("scroll", (event) => {
+        if (c.scrollTop < c.scrollHeight - 900) {
+            s[0].style.opacity = 1
+        } else {
+            s[0].style.opacity = 0
+        }
+    });
+
+    s[0].addEventListener("click", (event) => {
+        c.scrollTop += c.scrollHeight
+    })
+}

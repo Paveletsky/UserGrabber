@@ -3,7 +3,7 @@ from telegram.ext import Application, CommandHandler, CallbackQueryHandler, Mess
 import requests
 
 # Замените на свой токен
-TOKEN = '7422880413:AAFKP5z59eesD3HKsA2CC6wDSqDkdJJvK08'
+TOKEN = '7427495689:AAGm1PsIAtEyjcqCPLiAHN879AYYbKGyUcg'
 API_URL = 'http://localhost:5000'  # URL вашего Flask API
 
 main_keyboard = [
@@ -25,6 +25,8 @@ async def start(update: Update, context: CallbackContext) -> None:
         await update.callback_query.message.edit_text('Выберите действие:', reply_markup=reply_markup)
         await update.callback_query.answer()
 
+whitelist = ["Node", "Flask", "Grabber"]
+
 async def list_bots(update: Update, context: CallbackContext) -> None:
     response = requests.get(f'{API_URL}/list_bots')
     if response.status_code == 200:
@@ -34,7 +36,10 @@ async def list_bots(update: Update, context: CallbackContext) -> None:
         keyboard = []
 
         for line in screens.splitlines():
-            if line.startswith('\t'):                
+            if not any(word in line for word in whitelist):
+                continue
+
+            if line.startswith('\t'):
                 start_index = line.index('.') + 1
                 end_index = line.index('(', start_index)
 

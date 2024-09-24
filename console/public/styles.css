@@ -61,3 +61,26 @@ h1 {
     white-space: pre-wrap;
     border-radius: 10px;
 }
+
+.downscroll {
+    position: fixed;
+    right: 12%;
+    top: 5%;
+    width: 40px;
+    height: 40px;
+    background-color: #ddd;
+    color: #1a1a1a;
+    font-size: 30px;
+    font-weight: 900;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Небольшая тень для красоты */
+    transition: background-color 0.2s, opacity 0.2s;
+}
+
+.downscroll:hover {
+    background-color: #a9a9a9;
+}

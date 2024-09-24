@@ -30,8 +30,6 @@ def start_bot():
     password = data.get('password')
     username = data.get('username')
 
-    print(data)
-
     if not (sessionid and api_id and api_hash and phone_number and username):
         return jsonify({"error": "Все параметры обязательны"}), 400
 
