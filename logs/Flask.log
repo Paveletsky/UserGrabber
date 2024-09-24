@@ -175,3 +175,126 @@ There is a screen on:
 1 Socket in /run/screen/S-root.
 
 23-09-2024 19:21:51 - INFO: 127.0.0.1 - - [23/Sep/2024 19:21:51] "GET /list_bots HTTP/1.1" 200 -
+24-09-2024 22:03:08 - INFO: Запущен GrabberBot
+24-09-2024 22:03:08 - INFO: Запущен NodeJS
+24-09-2024 22:03:08 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://157.173.125.190:5000
+24-09-2024 22:03:08 - INFO: [33mPress CTRL+C to quit[0m
+24-09-2024 22:03:11 - INFO: Запущенные screen сессии:
+There are screens on:
+	145854.NodeConsole	(09/24/24 22:03:07)	(Detached)
+	145843.GrabberBot	(09/24/24 22:03:07)	(Detached)
+2 Sockets in /run/screen/S-root.
+
+24-09-2024 22:03:11 - INFO: 127.0.0.1 - - [24/Sep/2024 22:03:11] "GET /list_bots HTTP/1.1" 200 -
+24-09-2024 22:04:47 - INFO: Запущен GrabberBot
+24-09-2024 22:04:47 - INFO: Запущен NodeJS
+24-09-2024 22:04:47 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://157.173.125.190:5000
+24-09-2024 22:04:47 - INFO: [33mPress CTRL+C to quit[0m
+24-09-2024 22:04:50 - INFO: Запущенные screen сессии:
+There are screens on:
+	146265.NodeConsole	(09/24/24 22:04:46)	(Detached)
+	146261.GrabberBot	(09/24/24 22:04:46)	(Detached)
+2 Sockets in /run/screen/S-root.
+
+24-09-2024 22:04:50 - INFO: 127.0.0.1 - - [24/Sep/2024 22:04:50] "GET /list_bots HTTP/1.1" 200 -
+24-09-2024 22:05:50 - INFO: Запущен GrabberBot
+24-09-2024 22:05:50 - INFO: Запущен NodeJS
+24-09-2024 22:05:50 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://157.173.125.190:5000
+24-09-2024 22:05:50 - INFO: [33mPress CTRL+C to quit[0m
+24-09-2024 22:05:58 - INFO: Запущенные screen сессии:
+There are screens on:
+	146671.GrabberBot	(09/24/24 22:05:50)	(Attached)
+	146265.NodeConsole	(09/24/24 22:04:47)	(Detached)
+2 Sockets in /run/screen/S-root.
+
+24-09-2024 22:05:58 - INFO: 127.0.0.1 - - [24/Sep/2024 22:05:58] "GET /list_bots HTTP/1.1" 200 -
+24-09-2024 22:07:06 - INFO: Запущенные screen сессии:
+There are screens on:
+	146671.GrabberBot	(09/24/24 22:05:50)	(Attached)
+	146265.NodeConsole	(09/24/24 22:04:47)	(Detached)
+2 Sockets in /run/screen/S-root.
+
+24-09-2024 22:07:06 - INFO: 127.0.0.1 - - [24/Sep/2024 22:07:06] "GET /list_bots HTTP/1.1" 200 -
+24-09-2024 22:07:14 - INFO: Запущенные screen сессии:
+There are screens on:
+	146671.GrabberBot	(09/24/24 22:05:50)	(Attached)
+	146265.NodeConsole	(09/24/24 22:04:47)	(Detached)
+2 Sockets in /run/screen/S-root.
+
+24-09-2024 22:07:14 - INFO: 127.0.0.1 - - [24/Sep/2024 22:07:14] "GET /list_bots HTTP/1.1" 200 -
+24-09-2024 22:07:30 - INFO: Запущенные screen сессии:
+There are screens on:
+	146671.GrabberBot	(09/24/24 22:05:49)	(Attached)
+	146265.NodeConsole	(09/24/24 22:04:46)	(Detached)
+2 Sockets in /run/screen/S-root.
+
+24-09-2024 22:07:30 - INFO: 127.0.0.1 - - [24/Sep/2024 22:07:30] "GET /list_bots HTTP/1.1" 200 -
+24-09-2024 22:08:20 - INFO: Запущенные screen сессии:
+There is a screen on:
+	146265.NodeConsole	(09/24/24 22:04:47)	(Detached)
+1 Socket in /run/screen/S-root.
+
+24-09-2024 22:08:20 - INFO: 127.0.0.1 - - [24/Sep/2024 22:08:20] "GET /list_bots HTTP/1.1" 200 -
+24-09-2024 22:08:54 - INFO: Запущен бот Alex в screen сессии Alex
+24-09-2024 22:08:54 - INFO: 127.0.0.1 - - [24/Sep/2024 22:08:54] "[35m[1mPOST /start_bot HTTP/1.1[0m" 500 -
+24-09-2024 22:09:03 - INFO: Код 364-51 отправлен в screen сессию Alex
+24-09-2024 22:09:03 - INFO: 127.0.0.1 - - [24/Sep/2024 22:09:03] "POST /send_code HTTP/1.1" 200 -
+24-09-2024 22:09:06 - INFO: Запущенные screen сессии:
+There are screens on:
+	147398.Alex	(09/24/24 22:08:53)	(Detached)
+	146265.NodeConsole	(09/24/24 22:04:46)	(Detached)
+2 Sockets in /run/screen/S-root.
+
+24-09-2024 22:09:06 - INFO: 127.0.0.1 - - [24/Sep/2024 22:09:06] "GET /list_bots HTTP/1.1" 200 -
+24-09-2024 22:09:09 - INFO: Запущенные screen сессии:
+There are screens on:
+	147398.Alex	(09/24/24 22:08:54)	(Detached)
+	146265.NodeConsole	(09/24/24 22:04:47)	(Detached)
+2 Sockets in /run/screen/S-root.
+
+24-09-2024 22:09:09 - INFO: 127.0.0.1 - - [24/Sep/2024 22:09:09] "GET /list_bots HTTP/1.1" 200 -
+24-09-2024 22:09:12 - INFO: Запущенные screen сессии:
+There are screens on:
+	147398.Alex	(09/24/24 22:08:53)	(Detached)
+	146265.NodeConsole	(09/24/24 22:04:46)	(Detached)
+2 Sockets in /run/screen/S-root.
+
+24-09-2024 22:09:12 - INFO: 127.0.0.1 - - [24/Sep/2024 22:09:12] "GET /list_bots HTTP/1.1" 200 -
+24-09-2024 22:09:18 - INFO: Запущенные screen сессии:
+There are screens on:
+	147398.Alex	(09/24/24 22:08:54)	(Detached)
+	146265.NodeConsole	(09/24/24 22:04:47)	(Detached)
+2 Sockets in /run/screen/S-root.
+
+24-09-2024 22:09:18 - INFO: 127.0.0.1 - - [24/Sep/2024 22:09:18] "GET /list_bots HTTP/1.1" 200 -
+24-09-2024 22:09:22 - INFO: Запущенные screen сессии:
+There are screens on:
+	147398.Alex	(09/24/24 22:08:54)	(Detached)
+	146265.NodeConsole	(09/24/24 22:04:47)	(Detached)
+2 Sockets in /run/screen/S-root.
+
+24-09-2024 22:09:22 - INFO: 127.0.0.1 - - [24/Sep/2024 22:09:22] "GET /list_bots HTTP/1.1" 200 -
+24-09-2024 22:09:31 - INFO: Запущен GrabberBot
+24-09-2024 22:09:31 - INFO: Запущен NodeJS
+24-09-2024 22:09:31 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://157.173.125.190:5000
+24-09-2024 22:09:31 - INFO: [33mPress CTRL+C to quit[0m
+24-09-2024 22:09:35 - INFO: Запущенные screen сессии:
+There are screens on:
+	147618.GrabberBot	(09/24/24 22:09:31)	(Detached)
+	147398.Alex	(09/24/24 22:08:54)	(Detached)
+	146265.NodeConsole	(09/24/24 22:04:47)	(Detached)
+3 Sockets in /run/screen/S-root.
+
+24-09-2024 22:09:35 - INFO: 127.0.0.1 - - [24/Sep/2024 22:09:35] "GET /list_bots HTTP/1.1" 200 -

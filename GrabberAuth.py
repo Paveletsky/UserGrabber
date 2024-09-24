@@ -36,7 +36,8 @@ async def list_bots(update: Update, context: CallbackContext) -> None:
         keyboard = []
 
         for line in screens.splitlines():
-            if not any(word in line for word in whitelist):
+            print(any(word in line for word in whitelist))
+            if any(word in line for word in whitelist):
                 continue
 
             if line.startswith('\t'):
