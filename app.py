@@ -122,10 +122,10 @@ def delete():
     sessionid = data.get('sessionid')
 
     try:
-        print(sessionid)
         session_file = f"sessions/{sessionid}.session"
         if os.path.exists(session_file):
             os.remove(session_file)
+            os.remove(f"logs/{sessionid}.log")
 
         logger.info(f"Сессия {sessionid} удалена")
         return jsonify({"message": f"Сессия {sessionid} удалена"}), 200

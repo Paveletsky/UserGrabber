@@ -36,7 +36,6 @@ async def list_bots(update: Update, context: CallbackContext) -> None:
         keyboard = []
 
         for line in screens.splitlines():
-            print(any(word in line for word in whitelist))
             if any(word in line for word in whitelist):
                 continue
 
