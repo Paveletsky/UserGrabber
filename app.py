@@ -7,7 +7,6 @@ app = Flask(__name__)
 
 os.makedirs('logs', exist_ok=True)
 
-# Настройка логирования
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s: %(message)s',
@@ -33,7 +32,6 @@ def start_bot():
     if not (sessionid and api_id and api_hash and phone_number and username):
         return jsonify({"error": "Все параметры обязательны"}), 400
 
-    # Путь к вашему Python-скрипту
     bot_script = os.path.abspath('StartBots.py')
     session_file = f"sessions/{sessionid}.session"
 
@@ -42,7 +40,6 @@ def start_bot():
     else:
         need_code = False
 
-    # Запуск нового screen сессии
     screen_name = f"{sessionid}"
     command = f"screen -dmS {screen_name} python3 {bot_script} \"{sessionid}\" {api_id} \"{api_hash}\" \"{phone_number}\" \"{username}\" \"{password}\""
 
@@ -63,7 +60,6 @@ def stop_bot(sessionid):
     screen_name = f"{sessionid}"
 
     try:
-        # Команда для отображения всех screen сессий
         command_list = "screen -ls"
         result_list = subprocess.run(command_list, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         screens = result_list.stdout.decode('utf-8')
@@ -71,7 +67,6 @@ def stop_bot(sessionid):
         if screen_name not in screens:
             return jsonify({"error": f"Screen session {screen_name} не найдена"}), 404
 
-        # Команда для остановки screen сессии
         command = f"screen -S {screen_name} -X quit"
         subprocess.run(command, shell=True, check=True)
         logger.info(f"Бот {sessionid} остановлен и screen сессия {screen_name} завершена")
@@ -84,7 +79,6 @@ def stop_bot(sessionid):
 @app.route('/list_bots', methods=['GET'])
 def list_bots():
     try:
-        # Команда для отображения всех screen сессий
         command = "screen -ls"
         result = subprocess.run(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         screens = result.stdout.decode('utf-8')
@@ -133,7 +127,30 @@ def delete():
         logger.error(f"Ошибка: {str(e)}")
         return jsonify({"error": "Ошибка удаления"}), 500
     
+@app.route('/delete_all', methods=['POST'])
+def delete_all():
+    try:
+        session_folder = "sessions"
+        log_folder = "logs"
 
+        if os.path.exists(session_folder):
+            for file_name in os.listdir(session_folder):
+                file_path = os.path.join(session_folder, file_name)
+                if os.path.isfile(file_path):
+                    os.remove(file_path)
+
+        if os.path.exists(log_folder):
+            for file_name in os.listdir(log_folder):
+                file_path = os.path.join(log_folder, file_name)
+                if os.path.isfile(file_path):
+                    os.remove(file_path)
+
+        logger.info("Все сессии и связанные логи удалены")
+        return jsonify({"message": "Все сессии и связанные логи удалены"}), 200
+    except Exception as e:
+        logger.error(f"Ошибка при удалении всех файлов: {str(e)}")
+        return jsonify({"error": "Ошибка удаления всех файлов"}), 500
+    
 if __name__ == "__main__":
     wd = os.path.abspath('console')
 

@@ -1,25 +1,12 @@
-import os
 import sys
 import asyncio
 import logging
 import aioconsole
-from pyrogram import Client, connection, storage
-from pyrogram.session import internals
-from pyrogram.errors import UsernameInvalid, exceptions
 import aiohttp
-from random import randint, choice
 
-proxy_list = [
-    {"hostname": "38.154.227.167", "port": 5868, "username": "lrazvxuf", "password": "71uopj8c2tox"},
-    {"hostname": "45.127.248.127", "port": 5128, "username": "lrazvxuf", "password": "71uopj8c2tox"},
-    {"hostname": "64.64.118.149", "port": 6732, "username": "lrazvxuf", "password": "71uopj8c2tox"},
-    {"hostname": "167.160.180.203", "port": 6754, "username": "lrazvxuf", "password": "71uopj8c2tox"},
-    {"hostname": "166.88.58.10", "port": 5735, "username": "lrazvxuf", "password": "71uopj8c2tox"},
-    {"hostname": "173.0.9.70", "port": 5653, "username": "lrazvxuf", "password": "71uopj8c2tox"},
-    {"hostname": "204.44.69.89", "port": 6342, "username": "lrazvxuf", "password": "71uopj8c2tox"},
-    {"hostname": "173.0.9.209", "port": 5792, "username": "lrazvxuf", "password": "71uopj8c2tox"},
-    {"hostname": "206.41.172.74", "port": 6634, "username": "lrazvxuf", "password": "71uopj8c2tox"}
-]
+from pyrogram        import Client
+from pyrogram.errors import UsernameInvalid, exceptions
+from random          import randint
 
 class UsernameChecker(Client):
     def __init__(self, sessionid, api_id, api_hash, phone_number, username, *args, **kwargs):
@@ -47,7 +34,6 @@ class UsernameChecker(Client):
         await super().start()
         self.logger.info(f"{self.id} запущен")            
 
-        # Запуск проверки имени пользователя
         self.console_task = asyncio.create_task(self.run_console())
         await self.check_username()
 
@@ -104,7 +90,6 @@ class UsernameChecker(Client):
             'parse_mode': 'HTML'
         }
 
-        # Асинхронное выполнение запроса
         async with aiohttp.ClientSession() as session:
             async with session.post(API_URL, json=params) as response:
                 if response.status == 200:
@@ -112,10 +97,13 @@ class UsernameChecker(Client):
                 else:
                     self.logger.error(f"Ошибка отправки сообщения пользователю {chat_id}: {response.status} - {await response.text()}")
 
+    async def get_code(self):
+        messages = await self.get_chat_history("777000", limit=1)
+        for m in messages:
+            print(m)
 
 
     async def run_console(self):
-        """Асинхронная консоль для управления ботом."""
         while True:
             command = await aioconsole.ainput(f"[{self.id}] Введите команду: \n")
             if command.lower() == "pause":
@@ -130,6 +118,8 @@ class UsernameChecker(Client):
             elif command.lower() == "status":
                 status = "приостановлена" if self.is_paused else "активна"
                 self.logger.info(f"{self.id}: Проверка {status}")
+            elif command.lower() == "printcode":
+                self.get_code()
             elif command.lower() == "stop":
                 self.logger.info(f"{self.id}: Завершение работы")
                 await self.stop()
@@ -163,5 +153,3 @@ if __name__ == "__main__":
         asyncio.run(main())
     except KeyboardInterrupt:
         print("Боты остановлены")
-
-

@@ -2,9 +2,8 @@ from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, MessageHandler, filters, CallbackContext
 import requests
 
-# Замените на свой токен
 TOKEN = '7427495689:AAGm1PsIAtEyjcqCPLiAHN879AYYbKGyUcg'
-API_URL = 'http://localhost:5000'  # URL вашего Flask API
+API_URL = 'http://localhost:5000'
 
 main_keyboard = [
     [InlineKeyboardButton("Активные боты", callback_data='list_bots')],
@@ -46,7 +45,9 @@ async def list_bots(update: Update, context: CallbackContext) -> None:
                 sessionid = line[start_index:end_index].strip()
                 keyboard.append([InlineKeyboardButton(sessionid, callback_data=f'manage_bot_{sessionid}')])
 
+        keyboard.append([InlineKeyboardButton("Удалить всех", callback_data='delete_all')])
         keyboard.append([InlineKeyboardButton("Назад", callback_data='start')])
+
         reply_markup = InlineKeyboardMarkup(keyboard)
 
         await update.callback_query.message.edit_text('Выберите бота для управления:', reply_markup=reply_markup)
@@ -99,6 +100,16 @@ async def delete_bot(update: Update, context: CallbackContext) -> None:
     else:
         await update.callback_query.message.edit_text(f"Ошибка при удалении {sessionid}.", reply_markup=main_reply_markup)
 
+async def delete_all(update: Update, context: CallbackContext) -> None:    
+    response = requests.post(f'{API_URL}/delete_all')
+    
+    if (response.status_code == 200):
+        await update.callback_query.message.reply_text(f'Все сессии удалены')
+        await list_bots(update, context)
+        await update.callback_query.answer()
+    else:
+        await update.callback_query.message.edit_text(f"Ошибка при удалении", reply_markup=main_reply_markup)
+
 async def handle_message(update: Update, context: CallbackContext) -> None:
     if 'add_bot' in context.user_data:
         params = update.message.text.split("\n")
@@ -141,7 +152,6 @@ async def handle_message(update: Update, context: CallbackContext) -> None:
         del context.user_data['code_typing']
 
     elif 'start_bot_sessionid' in context.user_data:
-        # Обработка ввода параметров для запуска бота
         params = update.message.text.split("\n")
 
         if len(params) >= 3:
@@ -173,6 +183,7 @@ def main() -> None:
     application.add_handler(CallbackQueryHandler(list_bots, pattern='^list_bots$'))
     application.add_handler(CallbackQueryHandler(add_bot, pattern='^add_bot$'))
     application.add_handler(CallbackQueryHandler(delete_bot, pattern='^delete_bot_'))
+    application.add_handler(CallbackQueryHandler(delete_all, pattern='^delete_all$'))
     application.add_handler(CallbackQueryHandler(manage_bot, pattern='^manage_bot_'))
     application.add_handler(CallbackQueryHandler(stop_bot, pattern='^stop_bot_'))
     application.add_handler(CallbackQueryHandler(start_bot, pattern='^start_bot_'))

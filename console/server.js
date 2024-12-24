@@ -10,13 +10,10 @@ const app = express();
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
 
-// Путь к папке с логами
 const logFolder = path.join('..', 'logs');
 
-// Преобразование fs.readdir в промис
 const readdir = promisify(fs.readdir);
 
-// Хранение текущего выбранного файла для каждого клиента
 const clientFiles = new Map();
 
 function broadcastFileUpdate(fileName, content) {
@@ -30,7 +27,6 @@ function broadcastFileUpdate(fileName, content) {
     });
 }
 
-// Отслеживание изменений в папке
 const watcher = chokidar.watch(logFolder, { persistent: true });
 
 watcher.on('change', (filePath) => {
@@ -44,15 +40,12 @@ watcher.on('change', (filePath) => {
     });
 });
 
-// Статические файлы
 app.use(express.static('public'));
 
 
-// WebSocket обработчики
 wss.on('connection', (ws) => {
     console.log('Client connected');
 
-    // Отправка списка файлов при подключении
     readdir(logFolder).then(files => {
         ws.send(JSON.stringify({ type: 'fileList', files }));
     }).catch(err => {
@@ -81,7 +74,6 @@ wss.on('connection', (ws) => {
     });
 });
 
-// Запуск сервера
 server.listen(3001, () => {
     console.log('Server is running on http://localhost:3000');
 });

@@ -7,7 +7,6 @@ function scrollToBottom(element) {
 let lastFile;
 let curItem;
 
-// Дебаунс функция
 function debounce(func, delay) {
     let timeout;
     return function(...args) {
@@ -22,12 +21,10 @@ ws.onmessage = function(event) {
     const logContent = document.getElementById('log-content');
 
     if (data.type === 'fileList') {
-        // Очистка селектора файлов
         while (fileSelect.firstChild) {
             fileSelect.removeChild(fileSelect.firstChild);
         }
 
-        // Использование DocumentFragment для оптимизации
         const fragment = document.createDocumentFragment();
         data.files.forEach(file => {
             const option = document.createElement('li');
