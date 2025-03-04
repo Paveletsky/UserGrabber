@@ -1,3 +1,4 @@
+import asyncio
 from flask import Flask, request, jsonify
 import subprocess
 import os
@@ -150,8 +151,106 @@ def delete_all():
     except Exception as e:
         logger.error(f"Ошибка при удалении всех файлов: {str(e)}")
         return jsonify({"error": "Ошибка удаления всех файлов"}), 500
-    
+
+
+import aiomysql
+
+DB_CONFIG = {
+    "host": "db",
+    "port": 3306,
+    "user": "user",
+    "password": "root",
+    "db": "grabber"
+}
+
+async def init_db():
+    create_table_query = """
+    CREATE TABLE IF NOT EXISTS bots (
+        sessionid VARCHAR(255) NOT NULL,
+        phone_number VARCHAR(20) NOT NULL,
+        username VARCHAR(255),
+        password VARCHAR(255),
+        PRIMARY KEY (sessionid)
+    );
+    """
+    conn = None  # <-- Добавили, чтобы переменная была объявлена всегда
+    try:
+        conn = await aiomysql.connect(**DB_CONFIG)
+        async with conn.cursor() as cursor:
+            await cursor.execute(create_table_query)
+            await conn.commit()
+        print("Table 'bots' checked/created successfully")
+    except Exception as e:
+        print(f"Error while creating table: {e}")
+    # finally:
+    #     if conn:  # <-- Проверяем, определён ли conn
+    #         conn.close()
+
+async def fetch_bots():
+    """Получаем данные о ботах из базы."""
+    query = "SELECT sessionid, phone_number, username, password FROM bots"
+    conn = None
+    try:
+        conn = await aiomysql.connect(**DB_CONFIG)
+        async with conn.cursor() as cursor:
+            await cursor.execute(query)
+            return await cursor.fetchall()
+    except Exception as e:
+        print(f"Ошибка при получении данных из базы: {e}")
+        return []
+    finally:
+        if conn:
+            conn.close()
+
+async def add_bot(sessionid: str, phone_number: str, username: str, password: str):
+    """Добавляем нового бота в базу данных."""
+    insert_query = """
+    INSERT INTO bots (sessionid, phone_number, username, password)
+    VALUES (%s, %s, %s, %s)
+    """
+    conn = None
+    try:
+        conn = await aiomysql.connect(**DB_CONFIG)
+        async with conn.cursor() as cursor:
+            await cursor.execute(insert_query, (sessionid, phone_number, username, password))
+            await conn.commit()
+        print(f"Бот {sessionid} успешно добавлен в базу")
+    except Exception as e:
+        print(f"Ошибка при добавлении бота: {e}")
+    finally:
+        if conn:
+            conn.close()
+
+def start_bots():
+    """Запускаем ботов из базы данных."""
+    bot_script = os.path.abspath('StartBots.py')
+
+    bots = asyncio.run(fetch_bots())
+
+    if not bots:
+        print("Боты не найдены в базе.")
+        return
+
+    for bot in bots:
+        sessionid, phone_number, username, password = bot
+        api_id = "20576074"
+        api_hash = "cbaa8377df5a3fa7f538fd869f02a51b"
+
+        screen_name = f"{sessionid}"
+        command = (
+            f"screen -dmS {screen_name} python3 {bot_script} "
+            f"\"{sessionid}\" {api_id} \"{api_hash}\" \"{phone_number}\" \"{username}\" \"{password}\""
+        )
+
+        try:
+            subprocess.run(command, shell=True, check=True)
+            print(f"Запущен бот {sessionid} в screen сессии {screen_name}")
+        except subprocess.CalledProcessError as e:
+            print(f"Ошибка запуска бота {sessionid}: {e}")
+
 if __name__ == "__main__":
+    asyncio.run(init_db())
+
     wd = os.path.abspath('console')
 
     command = f"screen -dmS GrabberBot python3 GrabberAuth.py"
@@ -171,6 +270,8 @@ if __name__ == "__main__":
 
     subprocess.run(start_node, shell=True, check=True)
     logger.info(f"Запущен NodeJS")
+
+    start_bots()
 
     app.run(host='0.0.0.0', port=5000)
         

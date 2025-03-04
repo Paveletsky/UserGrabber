@@ -3,7 +3,23 @@ services:
   python_app:
     build: .
     volumes:
-      - ./sessions:/app/sessions    
+      - ./sessions:/app/sessions
+      - ./logs:/app/logs
     ports:
       - "5000:5000"  # Python
       - "3001:3001"  # Node.js
+  db:
+    container_name: grabber_db
+    image: mysql
+    volumes:
+      - grabber:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: grabber
+      MYSQL_USER: user
+      MYSQL_PASSWORD: root
+    ports:
+    - "3310:3306"
+
+volumes:
+  grabber:

@@ -1,3 +1,4 @@
+import os
 import sys
 import asyncio
 import logging
@@ -18,17 +19,31 @@ class UsernameChecker(Client):
         self.console_task = None
         self.media = False
         
-        logging.basicConfig(
-            level=logging.INFO,
-            format='%(asctime)s - %(levelname)s: %(message)s',
-            datefmt='%d-%m-%Y %H:%M:%S',
-            handlers=[
-                logging.FileHandler(f"logs/{self.username}.log"),
-                logging.StreamHandler()
-            ]
-        )
+        if not os.path.exists('logs'):
+            os.makedirs('logs')
 
-        self.logger = logging.getLogger(sessionid)
+        # Настройка логирования
+        self.logger = logging.getLogger(f"bot_{sessionid}")
+        self.logger.setLevel(logging.INFO)
+
+        # Очищаем старые хендлеры
+        if self.logger.hasHandlers():
+            self.logger.handlers.clear()
+
+        # Добавляем хендлеры
+        file_handler = logging.FileHandler(f"logs/{self.username}.log", encoding='utf-8')
+        stream_handler = logging.StreamHandler()
+
+        formatter = logging.Formatter('%(asctime)s - %(levelname)s: %(message)s', datefmt='%d-%m-%Y %H:%M:%S')
+
+        file_handler.setFormatter(formatter)
+        stream_handler.setFormatter(formatter)
+
+        self.logger.addHandler(file_handler)
+        self.logger.addHandler(stream_handler)
+
+        # Проверка, что логгер вообще работает
+        self.logger.info(f"Логгер запущен для {self.username}")
 
     async def start(self):
         await super().start()
@@ -129,6 +144,7 @@ class UsernameChecker(Client):
             else:
                 self.logger.warning(f"Неизвестная команда: {command}\n")
 
+from app import add_bot
 async def main():
     sessionid = sys.argv[1]
     api_id = int(sys.argv[2])
@@ -146,6 +162,7 @@ async def main():
         password=password,        
     )
     
+    await add_bot(sessionid, phone_number, username, password)
     await client.start()
 
 if __name__ == "__main__":
